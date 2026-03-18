@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management - Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Top Navigation Bar -->
+        <div class="admin-topbar">
+            <div class="topbar-brand">
+                <h2>🏛️ Admin Panel</h2>
+                <p>Sample College</p>
+            </div>
+            <nav class="admin-nav">
+                <a href="admin_dashboard.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="admin_departments.html" class="nav-item">
+                    <span class="nav-icon">🏫</span>
+                    <span class="nav-text">Departments</span>
+                </a>
+                <a href="admin_students.html" class="nav-item">
+                    <span class="nav-icon">👥</span>
+                    <span class="nav-text">Students</span>
+                </a>
+                <a href="admin_candidates.html" class="nav-item">
+                    <span class="nav-icon">✅</span>
+                    <span class="nav-text">Candidates</span>
+                </a>
+                <a href="admin_election.html" class="nav-item">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">Election</span>
+                </a>
+                <a href="admin_results.html" class="nav-item">
+                    <span class="nav-icon">🏆</span>
+                    <span class="nav-text">Results</span>
+                </a>
+            </nav>
+            <div class="topbar-actions">
+                <div class="admin-profile">
+                    <span>Admin</span>
+                    <div class="avatar">A</div>
+                </div>
+                <a href="college_login.html" class="btn-logout">Logout</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-topbar-old">
+                <h1>Student Management</h1>
+                <div class="topbar-actions">
+                    <button class="btn-primary" onclick="openAddStudentModal()">➕ Add Student</button>
+                    <button class="btn-secondary" onclick="openUploadCSVModal()">📤 Upload CSV</button>
+                </div>
+            </div>
+
+            <div class="admin-content">
+                <!-- Filters and Search -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2>👥 Student Records</h2>
+                    </div>
+                    <div class="table-controls">
+                        <div class="search-box">
+                            <input type="text" id="searchStudent" placeholder="Search by name, register number, or email...">
+                            <span class="search-icon">🔍</span>
+                        </div>
+                        <div class="filter-group">
+                            <select id="departmentFilter" class="filter-select">
+                                <option value="">All Departments</option>
+                                <option value="CS">Computer Science</option>
+                                <option value="EC">Electronics</option>
+                                <option value="ME">Mechanical</option>
+                                <option value="CE">Civil</option>
+                                <option value="EE">Electrical</option>
+                            </select>
+                            <select id="levelFilter" class="filter-select">
+                                <option value="">All Levels</option>
+                                <option value="UG">UG</option>
+                                <option value="PG">PG</option>
+                            </select>
+                            <select id="genderFilter" class="filter-select">
+                                <option value="">All Genders</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Students Table -->
+                    <div class="data-table">
+                        <table id="studentsTable">
+                            <thead>
+                                <tr>
+                                    <th>Register No.</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Department</th>
+                                    <th>Level</th>
+                                    <th>Gender</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentTableBody">
+                                <!-- Sample Data -->
+                                <tr>
+                                    <td>CS001</td>
+                                    <td>John Doe</td>
+                                    <td>john@college.edu</td>
+                                    <td>Computer Science</td>
+                                    <td><span class="badge-level ug">UG</span></td>
+                                    <td>Male</td>
+                                    <td><span class="badge-status active">Active</span></td>
+                                    <td>
+                                        <button class="btn-icon" onclick="editStudent('CS001')">✏️</button>
+                                        <button class="btn-icon" onclick="deleteStudent('CS001')">🗑️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>EC002</td>
+                                    <td>Jane Smith</td>
+                                    <td>jane@college.edu</td>
+                                    <td>Electronics</td>
+                                    <td><span class="badge-level pg">PG</span></td>
+                                    <td>Female</td>
+                                    <td><span class="badge-status active">Active</span></td>
+                                    <td>
+                                        <button class="btn-icon" onclick="editStudent('EC002')">✏️</button>
+                                        <button class="btn-icon" onclick="deleteStudent('EC002')">🗑️</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="btn-pagination">Previous</button>
+                        <span class="pagination-info">Showing 1-10 of 234 students</span>
+                        <button class="btn-pagination">Next</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Student Modal -->
+    <div id="addStudentModal" class="modal">
+        <div class="modal-content modal-card">
+            <div class="modal-header-custom">
+                <div class="modal-title-section">
+                    <h2>👥 Add New Student</h2>
+                    <p>Fill in the student details below</p>
+                </div>
+                <button class="modal-close" onclick="closeAddStudentModal()">×</button>
+            </div>
+            <form id="addStudentForm" class="modal-form-custom">
+                <!-- Personal Information Section -->
+                <div class="form-section">
+                    <h3 class="section-title-custom">Personal Information</h3>
+                    <div class="form-row">
+                        <div class="form-group-custom">
+                            <label for="studentName">Name *</label>
+                            <input type="text" id="studentName" name="name" required placeholder="Full name">
+                        </div>
+                        <div class="form-group-custom">
+                            <label for="registerNo">Register Number *</label>
+                            <input type="text" id="registerNo" name="registerNo" required placeholder="e.g., CS001">
+                        </div>
+                    </div>
+                    <div class="form-group-custom">
+                        <label for="studentEmail">Email *</label>
+                        <input type="email" id="studentEmail" name="email" required placeholder="student@college.edu">
+                    </div>
+                </div>
+
+                <!-- Academic Details Section -->
+                <div class="form-section">
+                    <h3 class="section-title-custom">Academic Details</h3>
+                    <div class="form-row">
+                        <div class="form-group-custom">
+                            <label for="studentDepartment">Department *</label>
+                            <select id="studentDepartment" name="department" required class="select-custom">
+                                <option value="">Select Department</option>
+                                <option value="CS">Computer Science</option>
+                                <option value="EC">Electronics</option>
+                                <option value="ME">Mechanical</option>
+                                <option value="CE">Civil</option>
+                                <option value="EE">Electrical</option>
+                            </select>
+                        </div>
+                        <div class="form-group-custom">
+                            <label for="studentLevel">Level *</label>
+                            <select id="studentLevel" name="level" required class="select-custom">
+                                <option value="">Select Level</option>
+                                <option value="UG">UG</option>
+                                <option value="PG">PG</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group-custom">
+                        <label for="studentGender">Gender *</label>
+                        <select id="studentGender" name="gender" required class="select-custom">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="modal-footer-custom">
+                    <button type="button" class="btn-cancel" onclick="closeAddStudentModal()">Cancel</button>
+                    <button type="submit" class="btn-submit">Add Student</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Upload CSV Modal -->
+    <div id="uploadCSVModal" class="modal">
+        <div class="modal-content modal-card">
+            <div class="modal-header-custom">
+                <div class="modal-title-section">
+                    <h2>📤 Upload Students CSV</h2>
+                    <p>Upload a CSV file with student records</p>
+                </div>
+                <button class="modal-close" onclick="closeUploadCSVModal()">×</button>
+            </div>
+            <div class="modal-form-custom">
+                <div class="form-section">
+                    <h3 class="section-title-custom">File Upload</h3>
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">📄</div>
+                        <p>Drag and drop CSV file here or click to browse</p>
+                        <input type="file" id="csvFile" accept=".csv" style="display:none;">
+                        <button type="button" class="btn-submit" onclick="document.getElementById('csvFile').click()">Choose File</button>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3 class="section-title-custom">Format Requirements</h3>
+                    <div class="upload-info">
+                        <ul>
+                            <li>Columns: Name, Register Number, Email, Department, Level, Gender</li>
+                            <li>First row should be headers</li>
+                            <li>Maximum 1000 records per upload</li>
+                        </ul>
+                        <a href="#" class="btn-link">Download Sample CSV</a>
+                    </div>
+                </div>
+                <div class="modal-footer-custom">
+                    <button type="button" class="btn-cancel" onclick="closeUploadCSVModal()">Cancel</button>
+                    <button type="button" class="btn-submit" onclick="uploadCSV()">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

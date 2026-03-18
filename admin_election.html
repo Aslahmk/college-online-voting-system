@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Setup - Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Top Navigation Bar -->
+        <div class="admin-topbar">
+            <div class="topbar-brand">
+                <h2>🏛️ Admin Panel</h2>
+                <p>Sample College</p>
+            </div>
+            <nav class="admin-nav">
+                <a href="admin_dashboard.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="admin_departments.html" class="nav-item">
+                    <span class="nav-icon">🏫</span>
+                    <span class="nav-text">Departments</span>
+                </a>
+                <a href="admin_students.html" class="nav-item">
+                    <span class="nav-icon">👥</span>
+                    <span class="nav-text">Students</span>
+                </a>
+                <a href="admin_candidates.html" class="nav-item">
+                    <span class="nav-icon">✅</span>
+                    <span class="nav-text">Candidates</span>
+                </a>
+                <a href="admin_election.html" class="nav-item active">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">Election</span>
+                </a>
+                <a href="admin_results.html" class="nav-item">
+                    <span class="nav-icon">🏆</span>
+                    <span class="nav-text">Results</span>
+                </a>
+            </nav>
+            <div class="topbar-actions">
+                <div class="current-status">
+                    Status: <span class="admin-status-badge upcoming" id="currentStatus">Upcoming</span>
+                </div>
+                <div class="admin-profile">
+                    <span>Admin</span>
+                    <div class="avatar">A</div>
+                </div>
+                <a href="college_login.html" class="btn-logout">Logout</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-topbar-old">
+                <h1>Election Configuration</h1>
+            </div>
+
+            <div class="admin-content">
+                <!-- Election Setup Form -->
+                <div class="setup-container">
+                    <div class="setup-section">
+                        <h2>📅 Election Schedule</h2>
+                        <form id="electionSetupForm" class="election-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Election Date *</label>
+                                    <input type="date" name="electionDate" id="electionDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Start Time *</label>
+                                    <input type="time" name="startTime" id="startTime" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>End Time *</label>
+                                    <input type="time" name="endTime" id="endTime" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Election Title</label>
+                                <input type="text" name="electionTitle" placeholder="e.g., College Union Election 2024">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea name="description" rows="3" placeholder="Brief description about the election"></textarea>
+                            </div>
+
+                            <div class="time-preview">
+                                <h4>⏰ Duration Preview</h4>
+                                <p id="durationPreview">Select date and time to see duration</p>
+                            </div>
+
+                            <button type="button" class="btn-primary" onclick="saveElectionSchedule()">💾 Save Schedule</button>
+                        </form>
+                    </div>
+
+                    <!-- Election Status Control -->
+                    <div class="setup-section">
+                        <h2>🎛️ Election Status Control</h2>
+                        <div class="status-controls">
+                            <div class="status-option">
+                                <div class="status-card upcoming-card">
+                                    <div class="status-icon">📅</div>
+                                    <h3>Upcoming</h3>
+                                    <p>Election scheduled but not started yet</p>
+                                    <button class="btn-status" onclick="setElectionStatus('upcoming')">Set as Upcoming</button>
+                                </div>
+                            </div>
+
+                            <div class="status-option">
+                                <div class="status-card live-card">
+                                    <div class="status-icon">🔴</div>
+                                    <h3>Live</h3>
+                                    <p>Voting is currently active</p>
+                                    <button class="btn-status active" onclick="setElectionStatus('live')">Start Election</button>
+                                </div>
+                            </div>
+
+                            <div class="status-option">
+                                <div class="status-card closed-card">
+                                    <div class="status-icon">🔒</div>
+                                    <h3>Closed</h3>
+                                    <p>Voting has ended, results not published</p>
+                                    <button class="btn-status" onclick="setElectionStatus('closed')">Close Election</button>
+                                </div>
+                            </div>
+
+                            <div class="status-option">
+                                <div class="status-card published-card">
+                                    <div class="status-icon">📊</div>
+                                    <h3>Results Published</h3>
+                                    <p>Results are visible to all students</p>
+                                    <button class="btn-status" onclick="setElectionStatus('published')">Publish Results</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Current Configuration -->
+                    <div class="setup-section">
+                        <h2>📋 Current Configuration</h2>
+                        <div class="config-display">
+                            <div class="config-item">
+                                <span class="config-label">Total Students:</span>
+                                <span class="config-value" id="totalStudentsConfig">234</span>
+                            </div>
+                            <div class="config-item">
+                                <span class="config-label">Approved Candidates:</span>
+                                <span class="config-value" id="approvedCandidatesConfig">12</span>
+                            </div>
+                            <div class="config-item">
+                                <span class="config-label">Election Date:</span>
+                                <span class="config-value" id="scheduledDateConfig">Not scheduled</span>
+                            </div>
+                            <div class="config-item">
+                                <span class="config-label">Voting Duration:</span>
+                                <span class="config-value" id="votingDurationConfig">Not set</span>
+                            </div>
+                            <div class="config-item">
+                                <span class="config-label">Current Status:</span>
+                                <span class="config-value">
+                                    <span class="admin-status-badge upcoming" id="statusConfigDisplay">Upcoming</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Position Configuration -->
+                    <div class="setup-section">
+                        <h2>🎯 Available Positions</h2>
+                        <div class="positions-list">
+                            <div class="position-item">
+                                <div class="position-info">
+                                    <h4>General Seats</h4>
+                                    <p>Chairman, Vice Chairman, General Secretary, Arts Club Secretary, Magazine Editor</p>
+                                </div>
+                                <div class="position-stats">
+                                    <span class="stat">5 positions</span>
+                                    <span class="stat">8 candidates</span>
+                                </div>
+                            </div>
+
+                            <div class="position-item">
+                                <div class="position-info">
+                                    <h4>UUC Representatives</h4>
+                                    <p>University Union Council members (2 seats)</p>
+                                </div>
+                                <div class="position-stats">
+                                    <span class="stat">2 positions</span>
+                                    <span class="stat">6 candidates</span>
+                                </div>
+                            </div>
+
+                            <div class="position-item">
+                                <div class="position-info">
+                                    <h4>Department Representatives</h4>
+                                    <p>CS UG, CS PG, EC UG, EC PG, ME UG, ME PG, etc.</p>
+                                </div>
+                                <div class="position-stats">
+                                    <span class="stat">10 positions</span>
+                                    <span class="stat">15 candidates</span>
+                                </div>
+                            </div>
+
+                            <div class="position-item">
+                                <div class="position-info">
+                                    <h4>Lady Representatives</h4>
+                                    <p>Female student representatives (2 seats)</p>
+                                </div>
+                                <div class="position-stats">
+                                    <span class="stat">2 positions</span>
+                                    <span class="stat">4 candidates</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Readiness Checklist -->
+                    <div class="setup-section">
+                        <h2>✅ Pre-Election Checklist</h2>
+                        <div class="checklist">
+                            <div class="checklist-item completed">
+                                <span class="check-icon">✓</span>
+                                <span>Students Added (234 students)</span>
+                            </div>
+                            <div class="checklist-item completed">
+                                <span class="check-icon">✓</span>
+                                <span>Candidates Approved (12 approved)</span>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="check-icon">○</span>
+                                <span>Election Schedule Set</span>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="check-icon">○</span>
+                                <span>All positions have candidates</span>
+                            </div>
+                            <div class="checklist-item completed">
+                                <span class="check-icon">✓</span>
+                                <span>System ready for voting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚠️ Confirm Action</h2>
+                <button class="modal-close" onclick="closeConfirmModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">Are you sure you want to proceed?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeConfirmModal()">Cancel</button>
+                <button class="btn-primary" id="confirmButton">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
