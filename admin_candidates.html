@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Approval - Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Top Navigation Bar -->
+        <div class="admin-topbar">
+            <div class="topbar-brand">
+                <h2>🏛️ Admin Panel</h2>
+                <p>Sample College</p>
+            </div>
+            <nav class="admin-nav">
+                <a href="admin_dashboard.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="admin_departments.html" class="nav-item">
+                    <span class="nav-icon">🏫</span>
+                    <span class="nav-text">Departments</span>
+                </a>
+                <a href="admin_students.html" class="nav-item">
+                    <span class="nav-icon">👥</span>
+                    <span class="nav-text">Students</span>
+                </a>
+                <a href="admin_candidates.html" class="nav-item active">
+                    <span class="nav-icon">✅</span>
+                    <span class="nav-text">Candidates</span>
+                </a>
+                <a href="admin_election.html" class="nav-item">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">Election</span>
+                </a>
+                <a href="admin_results.html" class="nav-item">
+                    <span class="nav-icon">🏆</span>
+                    <span class="nav-text">Results</span>
+                </a>
+            </nav>
+            <div class="topbar-actions">
+                <div class="admin-profile">
+                    <span>Admin</span>
+                    <div class="avatar">A</div>
+                </div>
+                <a href="college_login.html" class="btn-logout">Logout</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-topbar-old">
+                <div class="page-title-section">
+                    <h1>✅ Candidate Management</h1>
+                    <p class="page-subtitle">Review and manage student election candidates</p>
+                </div>
+                <div class="topbar-actions">
+                    <div class="status-filter-modern">
+                        <button class="filter-btn-modern active" data-status="all">
+                            <span class="filter-count">24</span>
+                            <span class="filter-label">All</span>
+                        </button>
+                        <button class="filter-btn-modern" data-status="pending">
+                            <span class="filter-count pending">8</span>
+                            <span class="filter-label">Pending</span>
+                        </button>
+                        <button class="filter-btn-modern" data-status="approved">
+                            <span class="filter-count approved">12</span>
+                            <span class="filter-label">Approved</span>
+                        </button>
+                        <button class="filter-btn-modern" data-status="rejected">
+                            <span class="filter-count rejected">4</span>
+                            <span class="filter-label">Rejected</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-content">
+                <!-- Quick Stats -->
+                <div class="candidates-stats">
+                    <div class="stat-card-modern pending-stat">
+                        <div class="stat-icon-modern">⏳</div>
+                        <div class="stat-info-modern">
+                            <h3>8</h3>
+                            <p>Pending Review</p>
+                        </div>
+                    </div>
+                    <div class="stat-card-modern approved-stat">
+                        <div class="stat-icon-modern">✓</div>
+                        <div class="stat-info-modern">
+                            <h3>12</h3>
+                            <p>Approved</p>
+                        </div>
+                    </div>
+                    <div class="stat-card-modern rejected-stat">
+                        <div class="stat-icon-modern">✗</div>
+                        <div class="stat-info-modern">
+                            <h3>4</h3>
+                            <p>Rejected</p>
+                        </div>
+                    </div>
+                    <div class="stat-card-modern total-stat">
+                        <div class="stat-icon-modern">📋</div>
+                        <div class="stat-info-modern">
+                            <h3>24</h3>
+                            <p>Total Applications</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Candidates Grid -->
+                <div class="candidates-grid-modern">
+                    <!-- Pending Application -->
+                    <div class="candidate-card-modern pending">
+                        <div class="card-header-modern">
+                            <div class="status-badge-modern pending">⏳ Pending Review</div>
+                            <span class="time-ago">Applied 2 days ago</span>
+                        </div>
+                        <div class="candidate-header-modern">
+                            <div class="candidate-photo-modern">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%234f46e5' width='100' height='100'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dy='.3em'%3EJD%3C/text%3E%3C/svg%3E" alt="Photo">
+                                <div class="position-indicator chairman"></div>
+                            </div>
+                            <div class="candidate-info-modern">
+                                <h3>John Doe</h3>
+                                <p class="candidate-regno">CS001</p>
+                                <p class="candidate-dept">Computer Science - UG</p>
+                            </div>
+                        </div>
+                        <div class="candidate-position-modern">
+                            <span class="position-badge-modern chairman">Chairman</span>
+                        </div>
+                        <div class="candidate-manifesto-modern">
+                            <h4>📜 Manifesto</h4>
+                            <p>My vision is to create an inclusive and progressive student union that prioritizes student welfare, academic excellence, and extracurricular development...</p>
+                            <button class="btn-link-modern" onclick="viewManifesto('JD001')">Read Full Manifesto →</button>
+                        </div>
+                        <div class="candidate-details-modern">
+                            <div class="detail-row">
+                                <span class="detail-icon">📧</span>
+                                <span>john@college.edu</span>
+                            </div>
+                        </div>
+                        <div class="candidate-actions-modern">
+                            <button class="btn-approve-modern" onclick="approveCandidate('JD001')">
+                                <span>✓</span> Approve
+                            </button>
+                            <button class="btn-reject-modern" onclick="rejectCandidate('JD001')">
+                                <span>✗</span> Reject
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Approved Candidate -->
+                    <div class="candidate-card-modern approved">
+                        <div class="card-header-modern">
+                            <div class="status-badge-modern approved">✓ Approved</div>
+                            <span class="time-ago">Approved 1 day ago</span>
+                        </div>
+                        <div class="candidate-header-modern">
+                            <div class="candidate-photo-modern">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%2310b981' width='100' height='100'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dy='.3em'%3EJS%3C/text%3E%3C/svg%3E" alt="Photo">
+                                <div class="position-indicator vice-chairman"></div>
+                            </div>
+                            <div class="candidate-info-modern">
+                                <h3>Jane Smith</h3>
+                                <p class="candidate-regno">EC002</p>
+                                <p class="candidate-dept">Electronics - UG</p>
+                            </div>
+                        </div>
+                        <div class="candidate-position-modern">
+                            <span class="position-badge-modern vice-chairman">Vice Chairman</span>
+                        </div>
+                        <div class="candidate-manifesto-modern">
+                            <h4>📜 Manifesto</h4>
+                            <p>Committed to fostering innovation, improving campus facilities, and ensuring every student voice is heard in union decisions...</p>
+                            <button class="btn-link-modern" onclick="viewManifesto('JS002')">Read Full Manifesto →</button>
+                        </div>
+                        <div class="candidate-details-modern">
+                            <div class="detail-row">
+                                <span class="detail-icon">📧</span>
+                                <span>jane@college.edu</span>
+                            </div>
+                        </div>
+                        <div class="candidate-actions-modern">
+                            <button class="btn-revoke-modern" onclick="revokeApproval('JS002')">
+                                <span>↩️</span> Revoke Approval
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pending Application -->
+                    <div class="candidate-card-modern pending">
+                        <div class="card-header-modern">
+                            <div class="status-badge-modern pending">⏳ Pending Review</div>
+                            <span class="time-ago">Applied 5 hours ago</span>
+                        </div>
+                        <div class="candidate-header-modern">
+                            <div class="candidate-photo-modern">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%234f46e5' width='100' height='100'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dy='.3em'%3EMK%3C/text%3E%3C/svg%3E" alt="Photo">
+                                <div class="position-indicator secretary"></div>
+                            </div>
+                            <div class="candidate-info-modern">
+                                <h3>Mike Kumar</h3>
+                                <p class="candidate-regno">ME003</p>
+                                <p class="candidate-dept">Mechanical - PG</p>
+                            </div>
+                        </div>
+                        <div class="candidate-position-modern">
+                            <span class="position-badge-modern secretary">General Secretary</span>
+                        </div>
+                        <div class="candidate-manifesto-modern">
+                            <h4>📜 Manifesto</h4>
+                            <p>Focus on transparency, accountability, and establishing better communication channels between students and administration...</p>
+                            <button class="btn-link-modern" onclick="viewManifesto('MK003')">Read Full Manifesto →</button>
+                        </div>
+                        <div class="candidate-details-modern">
+                            <div class="detail-row">
+                                <span class="detail-icon">📧</span>
+                                <span>mike@college.edu</span>
+                            </div>
+                        </div>
+                        <div class="candidate-actions-modern">
+                            <button class="btn-approve-modern" onclick="approveCandidate('MK003')">
+                                <span>✓</span> Approve
+                            </button>
+                            <button class="btn-reject-modern" onclick="rejectCandidate('MK003')">
+                                <span>✗</span> Reject
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Approved Candidate -->
+                    <div class="candidate-card-modern approved">
+                        <div class="card-header-modern">
+                            <div class="status-badge-modern approved">✓ Approved</div>
+                            <span class="time-ago">Approved 3 days ago</span>
+                        </div>
+                        <div class="candidate-header-modern">
+                            <div class="candidate-photo-modern">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%2310b981' width='100' height='100'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dy='.3em'%3ESP%3C/text%3E%3C/svg%3E" alt="Photo">
+                                <div class="position-indicator arts"></div>
+                            </div>
+                            <div class="candidate-info-modern">
+                                <h3>Sarah Patel</h3>
+                                <p class="candidate-regno">CS004</p>
+                                <p class="candidate-dept">Computer Science - UG</p>
+                            </div>
+                        </div>
+                        <div class="candidate-position-modern">
+                            <span class="position-badge-modern arts">Arts Club Secretary</span>
+                        </div>
+                        <div class="candidate-manifesto-modern">
+                            <h4>📜 Manifesto</h4>
+                            <p>Passionate about promoting arts and culture on campus through regular events, workshops, and competitions...</p>
+                            <button class="btn-link-modern" onclick="viewManifesto('SP004')">Read Full Manifesto →</button>
+                        </div>
+                        <div class="candidate-details-modern">
+                            <div class="detail-row">
+                                <span class="detail-icon">📧</span>
+                                <span>sarah@college.edu</span>
+                            </div>
+                        </div>
+                        <div class="candidate-actions-modern">
+                            <button class="btn-revoke-modern" onclick="revokeApproval('SP004')">
+                                <span>↩️</span> Revoke Approval
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Manifesto Modal -->
+    <div id="manifestoModal" class="modal">
+        <div class="modal-content modal-card">
+            <div class="modal-header-custom">
+                <div class="modal-title-section">
+                    <h2>📜 Candidate Manifesto</h2>
+                    <p>Full details of the candidate's election platform</p>
+                </div>
+                <button class="modal-close" onclick="closeManifestoModal()">×</button>
+            </div>
+            <div class="modal-form-custom">
+                <div class="form-section">
+                    <div class="manifesto-candidate-info">
+                        <div class="manifesto-photo">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect fill='%234f46e5' width='80' height='80'/%3E%3Ctext x='50%25' y='50%25' font-size='30' fill='white' text-anchor='middle' dy='.3em'%3E?%3C/text%3E%3C/svg%3E" alt="Photo" id="manifestoPhoto">
+                        </div>
+                        <div class="manifesto-details">
+                            <h3 id="candidateName">Candidate Name</h3>
+                            <p id="candidatePosition" class="position-badge-modern chairman">Position</p>
+                            <p id="candidateRegno" class="candidate-regno">Register No.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3 class="section-title-custom">Election Manifesto</h3>
+                    <div class="manifesto-text" id="manifestoText">
+                        <p>Full manifesto content will be displayed here...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer-custom">
+                <button class="btn-cancel" onclick="closeManifestoModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

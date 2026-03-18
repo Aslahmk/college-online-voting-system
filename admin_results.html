@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Results - Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Top Navigation Bar -->
+        <div class="admin-topbar">
+            <div class="topbar-brand">
+                <h2>🏛️ Admin Panel</h2>
+                <p>Sample College</p>
+            </div>
+            <nav class="admin-nav">
+                <a href="admin_dashboard.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="admin_departments.html" class="nav-item">
+                    <span class="nav-icon">🏫</span>
+                    <span class="nav-text">Departments</span>
+                </a>
+                <a href="admin_students.html" class="nav-item">
+                    <span class="nav-icon">👥</span>
+                    <span class="nav-text">Students</span>
+                </a>
+                <a href="admin_candidates.html" class="nav-item">
+                    <span class="nav-icon">✅</span>
+                    <span class="nav-text">Candidates</span>
+                </a>
+                <a href="admin_election.html" class="nav-item">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">Election</span>
+                </a>
+                <a href="admin_results.html" class="nav-item active">
+                    <span class="nav-icon">🏆</span>
+                    <span class="nav-text">Results</span>
+                </a>
+            </nav>
+            <div class="topbar-actions">
+                <div class="admin-profile">
+                    <span>Admin</span>
+                    <div class="avatar">A</div>
+                </div>
+                <a href="college_login.html" class="btn-logout">Logout</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-topbar-old">
+                <h1>Election Results</h1>
+                <div class="topbar-actions">
+                    <button class="btn-primary btn-large" id="publishResultsBtn" onclick="publishResults()">
+                        📢 Publish Results
+                    </button>
+                    <button class="btn-secondary" onclick="exportResults()">📥 Export Report</button>
+                </div>
+            </div>
+
+            <div class="admin-content">
+                <!-- Overall Statistics -->
+                <div class="results-stats">
+                    <div class="stat-card">
+                        <h3>234</h3>
+                        <p>Total Voters</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>187</h3>
+                        <p>Votes Cast</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>79.9%</h3>
+                        <p>Turnout</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="resultsStatus">Not Published</h3>
+                        <p>Publication Status</p>
+                    </div>
+                </div>
+
+                <!-- General Seats Results -->
+                <div class="results-section">
+                    <h2>🏆 General Seats</h2>
+                    
+                    <!-- Chairman -->
+                    <div class="position-results">
+                        <h3>Chairman</h3>
+                        <div class="candidates-results">
+                            <div class="result-card winner">
+                                <div class="winner-badge">🏆 Winner</div>
+                                <div class="candidate-result-info">
+                                    <h4>John Doe</h4>
+                                    <p>CS001 - Computer Science UG</p>
+                                </div>
+                                <div class="vote-stats">
+                                    <div class="vote-count">124 votes</div>
+                                    <div class="vote-percentage">66.3%</div>
+                                </div>
+                                <div class="vote-bar">
+                                    <div class="vote-fill" style="width: 66.3%"></div>
+                                </div>
+                            </div>
+
+                            <div class="result-card">
+                                <div class="candidate-result-info">
+                                    <h4>Robert Kumar</h4>
+                                    <p>EC005 - Electronics UG</p>
+                                </div>
+                                <div class="vote-stats">
+                                    <div class="vote-count">63 votes</div>
+                                    <div class="vote-percentage">33.7%</div>
+                                </div>
+                                <div class="vote-bar">
+                                    <div class="vote-fill secondary" style="width: 33.7%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vice Chairman -->
+                    <div class="position-results">
+                        <h3>Vice Chairman</h3>
+                        <div class="candidates-results">
+                            <div class="result-card winner">
+                                <div class="winner-badge">🏆 Winner</div>
+                                <div class="candidate-result-info">
+                                    <h4>Jane Smith</h4>
+                                    <p>EC002 - Electronics UG</p>
+                                </div>
+                                <div class="vote-stats">
+                                    <div class="vote-count">142 votes</div>
+                                    <div class="vote-percentage">75.9%</div>
+                                </div>
+                                <div class="vote-bar">
+                                    <div class="vote-fill" style="width: 75.9%"></div>
+                                </div>
+                            </div>
+
+                            <div class="result-card">
+                                <div class="candidate-result-info">
+                                    <h4>Alex Johnson</h4>
+                                    <p>ME006 - Mechanical UG</p>
+                                </div>
+                                <div class="vote-stats">
+                                    <div class="vote-count">45 votes</div>
+                                    <div class="vote-percentage">24.1%</div>
+                                </div>
+                                <div class="vote-bar">
+                                    <div class="vote-fill secondary" style="width: 24.1%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- General Secretary -->
+                    <div class="position-results">
+                        <h3>General Secretary</h3>
+                        <div class="candidates-results">
+                            <div class="result-card winner">
+                                <div class="winner-badge">🏆 Winner</div>
+                                <div class="candidate-result-info">
+                                    <h4>Mike Kumar</h4>
+                                    <p>ME003 - Mechanical PG</p>
+                                </div>
+                                <div class="vote-stats">
+                                    <div class="vote-count">98 votes</div>
+                                    <div class="vote-percentage">52.4%</div>
+                                </div>
+                                <div class="vote-bar">
+                                    <div class="vote-fill" style="width: 52.4%"></div>
+                                </div>
+                            </div>
+
+                            <div class="result-card">
+                                <div class="candidate-result-info">
+                                    <h4>David Lee</h4>
+                                    <p>CS007 - Computer Science PG</p>
+                                </div>
+                                <div class="vote-stats">
+                                    <div class="vote-count">89 votes</div>
+                                    <div class="vote-percentage">47.6%</div>
+                                </div>
+                                <div class="vote-bar">
+                                    <div class="vote-fill secondary" style="width: 47.6%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UUC Representatives -->
+                <div class="results-section">
+                    <h2>🎓 UUC Representatives (Top 2)</h2>
+                    <div class="position-results">
+                        <div class="candidates-results">
+                            <div class="result-card winner">
+                                <div class="winner-badge">🏆 Winner</div>
+                                <div class="candidate-result-info">
+                                    <h4>Sarah Patel</h4>
+                                    <p>CS004 - Computer Science UG</p>
+                                </div>
+                                <div class="vote-stats">
+                                    <div class="vote-count">156 votes</div>
+                                    <div class="vote-percentage">83.4%</div>
+                                </div>
+                                <div class="vote-bar">
+                                    <div class="vote-fill" style="width: 83.4%"></div>
+                                </div>
+                            </div>
+
+                            <div class="result-card winner">
+                                <div class="winner-badge">🏆 Winner</div>
+                                <div class="candidate-result-info">
+                                    <h4>Rahul Sharma</h4>
+                                    <p>EC008 - Electronics PG</p>
+                                </div>
+                                <div class="vote-stats">
+                                    <div class="vote-count">134 votes</div>
+                                    <div class="vote-percentage">71.7%</div>
+                                </div>
+                                <div class="vote-bar">
+                                    <div class="vote-fill" style="width: 71.7%"></div>
+                                </div>
+                            </div>
+
+                            <div class="result-card">
+                                <div class="candidate-result-info">
+                                    <h4>Priya Menon</h4>
+                                    <p>ME009 - Mechanical UG</p>
+                                </div>
+                                <div class="vote-stats">
+                                    <div class="vote-count">87 votes</div>
+                                    <div class="vote-percentage">46.5%</div>
+                                </div>
+                                <div class="vote-bar">
+                                    <div class="vote-fill secondary" style="width: 46.5%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Department Representatives -->
+                <div class="results-section">
+                    <h2>🏫 Department Representatives</h2>
+                    <div class="dept-results-grid">
+                        <div class="dept-result-card">
+                            <h4>CS UG Representative</h4>
+                            <div class="result-winner">
+                                <span class="winner-icon">🏆</span>
+                                <div>
+                                    <strong>Lisa Chen</strong>
+                                    <p>CS010 - 98 votes (78%)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dept-result-card">
+                            <h4>CS PG Representative</h4>
+                            <div class="result-winner">
+                                <span class="winner-icon">🏆</span>
+                                <div>
+                                    <strong>Amit Verma</strong>
+                                    <p>CS011 - 34 votes (85%)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dept-result-card">
+                            <h4>EC UG Representative</h4>
+                            <div class="result-winner">
+                                <span class="winner-icon">🏆</span>
+                                <div>
+                                    <strong>Nina Joseph</strong>
+                                    <p>EC012 - 76 votes (71%)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dept-result-card">
+                            <h4>ME UG Representative</h4>
+                            <div class="result-winner">
+                                <span class="winner-icon">🏆</span>
+                                <div>
+                                    <strong>Karthik Nair</strong>
+                                    <p>ME013 - 65 votes (69%)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lady Representatives -->
+                <div class="results-section">
+                    <h2>👩‍🎓 Lady Representatives (Top 2)</h2>
+                    <div class="position-results">
+                        <div class="candidates-results">
+                            <div class="result-card winner">
+                                <div class="winner-badge">🏆 Winner</div>
+                                <div class="candidate-result-info">
+                                    <h4>Maya Krishnan</h4>
+                                    <p>CS015 - Computer Science UG</p>
+                                </div>
+                                <div class="vote-stats">
+                                    <div class="vote-count">78 votes</div>
+                                    <div class="vote-percentage">81.3%</div>
+                                </div>
+                                <div class="vote-bar">
+                                    <div class="vote-fill" style="width: 81.3%"></div>
+                                </div>
+                            </div>
+
+                            <div class="result-card winner">
+                                <div class="winner-badge">🏆 Winner</div>
+                                <div class="candidate-result-info">
+                                    <h4>Anjali Desai</h4>
+                                    <p>EC016 - Electronics UG</p>
+                                </div>
+                                <div class="vote-stats">
+                                    <div class="vote-count">67 votes</div>
+                                    <div class="vote-percentage">69.8%</div>
+                                </div>
+                                <div class="vote-bar">
+                                    <div class="vote-fill" style="width: 69.8%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Publish Confirmation Modal -->
+    <div id="publishModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📢 Publish Results</h2>
+                <button class="modal-close" onclick="closePublishModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to publish the election results?</p>
+                <p><strong>Once published, results will be visible to all students.</strong></p>
+                <div class="warning-box">
+                    ⚠️ This action cannot be undone. Please verify all results before publishing.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closePublishModal()">Cancel</button>
+                <button class="btn-primary" onclick="confirmPublish()">Publish Results</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
