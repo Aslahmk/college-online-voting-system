@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cast Your Vote - College Voting</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="student.css">
+
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Top Navigation Bar -->
+        <div class="admin-topbar">
+            <div class="topbar-brand">
+                <h2>🎓 College Union Voting</h2>
+                <p>Student Portal</p>
+            </div>
+            <nav class="admin-nav">
+                <a href="student_dashboard.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="student_profile.html" class="nav-item">
+                    <span class="nav-icon">👤</span>
+                    <span class="nav-text">Profile</span>
+                </a>
+                <a href="student_apply.html" class="nav-item">
+                    <span class="nav-icon">📝</span>
+                    <span class="nav-text">Apply</span>
+                </a>
+                <a href="student_vote.html" class="nav-item active">
+                    <span class="nav-icon">🗳️</span>
+                    <span class="nav-text">Vote</span>
+                </a>
+                <a href="student_results.html" class="nav-item">
+                    <span class="nav-icon">🏆</span>
+                    <span class="nav-text">Results</span>
+                </a>
+            </nav>
+            <div class="topbar-actions">
+                <div class="admin-profile">
+                    <span>Student</span>
+                    <div class="avatar">S</div>
+                </div>
+                <a href="student_login.html" class="btn-logout">Logout</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Voting Header -->
+<div class="admin-topbar-old">
+                <h1>Cast Your Vote 🗳️</h1>
+                <div class="voting-timer" style="margin-top: var(--spacing-md); font-size: 1rem;">
+                    <span class="timer-label">Time Remaining:</span>
+                    <span class="timer-value" id="votingTimer">3h 45m 32s</span>
+                </div>
+            </div>
+
+            <!-- Main Centered Voting Container -->
+            <div class="voting-container">
+                <!-- Progress Indicator -->
+                <div class="voting-progress">
+                    <div class="progress-steps">
+                        <div class="step active">
+                            <div class="step-number">1</div>
+                            <span>General Seats</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <span>UUC Reps</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <span>Department Rep</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <span>Lady Rep</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <span>Review & Submit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="student-content voting-content">
+                <form id="votingForm">
+                    <!-- Centered General Seats Container -->
+                    <div class="general-seats-container">
+                        <div class="voting-section general-seats-card">
+                            <h3 class="section-title">General Seats</h3>
+                            <p class="section-desc">Select one candidate for each position</p>
+
+                        <!-- Chairman -->
+                        <div class="position-voting">
+                            <h4 class="position-title">Chairman</h4>
+    <div class="candidates-grid">
+                                <div class="candidate-vote-card">
+                                    <input type="radio" name="chairman" value="JD001" id="chairman-jd">
+                                    <label for="chairman-jd" class="candidate-label">
+                                        <div class="avatar-badge">JD</div>
+                                        <div class="candidate-details">
+                                            <h5>John Doe</h5>
+                                            <p class="candidate-reg">CS001</p>
+                                            <p class="candidate-dept">Computer Science - UG</p>
+                                            <div class="candidate-slogan">"Leading with Vision, Serving with Passion"</div>
+                                            <button type="button" class="btn-manifesto" onclick="viewCandidateManifesto('JD001', event)">View Manifesto</button>
+                                        </div>
+                                        <div class="vote-indicator">✓ Selected</div>
+                                    </label>
+                                </div>
+
+                                <div class="candidate-vote-card">
+                                    <input type="radio" name="chairman" value="RK002" id="chairman-rk">
+                                    <label for="chairman-rk" class="candidate-label">
+                                        <div class="candidate-photo">
+                                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect fill='%2310b981' width='120' height='120'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dy='.3em'%3ERK%3C/text%3E%3C/svg%3E" alt="Photo">
+                                        </div>
+                                        <div class="candidate-details">
+                                            <h5>Robert Kumar</h5>
+                                            <p class="candidate-reg">EC005</p>
+                                            <p class="candidate-dept">Electronics - UG</p>
+                                            <div class="candidate-slogan">"Together We Rise, Together We Thrive"</div>
+                                            <button type="button" class="btn-manifesto" onclick="viewCandidateManifesto('RK002', event)">View Manifesto</button>
+                                        </div>
+                                        <div class="vote-indicator">✓ Selected</div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vice Chairman -->
+                        <div class="position-voting">
+                            <h4 class="position-title">Vice Chairman</h4>
+                            <div class="candidates-grid">
+                                <div class="candidate-vote-card">
+                                    <input type="radio" name="vice-chairman" value="JS001" id="vice-js">
+                                    <label for="vice-js" class="candidate-label">
+                                        <div class="candidate-photo">
+                                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect fill='%23f59e0b' width='120' height='120'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dy='.3em'%3EJS%3C/text%3E%3C/svg%3E" alt="Photo">
+                                        </div>
+                                        <div class="candidate-details">
+                                            <h5>Jane Smith</h5>
+                                            <p class="candidate-reg">EC002</p>
+                                            <p class="candidate-dept">Electronics - UG</p>
+                                            <div class="candidate-slogan">"Innovation, Integrity, Inclusion"</div>
+                                            <button type="button" class="btn-manifesto" onclick="viewCandidateManifesto('JS001', event)">View Manifesto</button>
+                                        </div>
+                                        <div class="vote-indicator">✓ Selected</div>
+                                    </label>
+                                </div>
+
+                                <div class="candidate-vote-card">
+                                    <input type="radio" name="vice-chairman" value="AJ002" id="vice-aj">
+                                    <label for="vice-aj" class="candidate-label">
+                                        <div class="candidate-photo">
+                                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect fill='%23ef4444' width='120' height='120'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dy='.3em'%3EAJ%3C/text%3E%3C/svg%3E" alt="Photo">
+                                        </div>
+                                        <div class="candidate-details">
+                                            <h5>Alex Johnson</h5>
+                                            <p class="candidate-reg">ME006</p>
+                                            <p class="candidate-dept">Mechanical - UG</p>
+                                            <div class="candidate-slogan">"Your Voice, Our Priority"</div>
+                                            <button type="button" class="btn-manifesto" onclick="viewCandidateManifesto('AJ002', event)">View Manifesto</button>
+                                        </div>
+                                        <div class="vote-indicator">✓ Selected</div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- General Secretary -->
+                        <div class="position-voting">
+                            <h4 class="position-title">General Secretary</h4>
+                            <div class="candidates-grid">
+                                <div class="candidate-vote-card">
+                                    <input type="radio" name="general-secretary" value="MK001" id="secretary-mk">
+                                    <label for="secretary-mk" class="candidate-label">
+                                        <div class="candidate-photo">
+                                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect fill='%238b5cf6' width='120' height='120'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dy='.3em'%3EMK%3C/text%3E%3C/svg%3E" alt="Photo">
+                                        </div>
+                                        <div class="candidate-details">
+                                            <h5>Mike Kumar</h5>
+                                            <p class="candidate-reg">ME003</p>
+                                            <p class="candidate-dept">Mechanical - PG</p>
+                                            <div class="candidate-slogan">"Transparent. Accountable. Effective."</div>
+                                            <button type="button" class="btn-manifesto" onclick="viewCandidateManifesto('MK001', event)">View Manifesto</button>
+                                        </div>
+                                        <div class="vote-indicator">✓ Selected</div>
+                                    </label>
+                                </div>
+
+                                <div class="candidate-vote-card">
+                                    <input type="radio" name="general-secretary" value="DL001" id="secretary-dl">
+                                    <label for="secretary-dl" class="candidate-label">
+                                        <div class="candidate-photo">
+                                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect fill='%2306b6d4' width='120' height='120'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dy='.3em'%3EDL%3C/text%3E%3C/svg%3E" alt="Photo">
+                                        </div>
+                                        <div class="candidate-details">
+                                            <h5>David Lee</h5>
+                                            <p class="candidate-reg">CS007</p>
+                                            <p class="candidate-dept">Computer Science - PG</p>
+                                            <div class="candidate-slogan">"Progress Through Unity"</div>
+                                            <button type="button" class="btn-manifesto" onclick="viewCandidateManifesto('DL001', event)">View Manifesto</button>
+                                        </div>
+                                        <div class="vote-indicator">✓ Selected</div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Arts Club Secretary -->
+                        <div class="position-voting">
+                            <h4 class="position-title">Arts Club Secretary</h4>
+                            <div class="candidates-grid">
+                                <div class="candidate-vote-card">
+                                    <input type="radio" name="arts-secretary" value="SP001" id="arts-sp">
+                                    <label for="arts-sp" class="candidate-label">
+                                        <div class="candidate-photo">
+                                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect fill='%23ec4899' width='120' height='120'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dy='.3em'%3ESP%3C/text%3E%3C/svg%3E" alt="Photo">
+                                        </div>
+                                        <div class="candidate-details">
+                                            <h5>Sarah Patel</h5>
+                                            <p class="candidate-reg">CS004</p>
+                                            <p class="candidate-dept">Computer Science - UG</p>
+                                            <div class="candidate-slogan">"Celebrating Creativity, Building Culture"</div>
+                                            <button type="button" class="btn-manifesto" onclick="viewCandidateManifesto('SP001', event)">View Manifesto</button>
+                                        </div>
+                                        <div class="vote-indicator">✓ Selected</div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Magazine Editor -->
+                        <div class="position-voting">
+                            <h4 class="position-title">Magazine Editor</h4>
+                            <div class="candidates-grid">
+                                <div class="candidate-vote-card">
+                                    <input type="radio" name="magazine-editor" value="RS001" id="editor-rs">
+                                    <label for="editor-rs" class="candidate-label">
+                                        <div class="avatar-badge">RS</div>
+                                        <div class="candidate-details">
+                                            <h5>Rahul Sharma</h5>
+                                            <p class="candidate-reg">EC008</p>
+                                            <p class="candidate-dept">Electronics - PG</p>
+                                            <div class="candidate-slogan">"Stories That Matter, Voices That Count"</div>
+                                            <button type="button" class="btn-manifesto" onclick="viewCandidateManifesto('RS001', event)">View Manifesto</button>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+        <!-- SEATS ROW 2 -->
+        <div class="seats-row">
+            <!-- UUC REPRESENTATIVES SECTION -->
+            <div class="voting-section section-uuc">
+                        <h3 class="section-title">UUC Representatives</h3>
+                        <p class="section-desc">Select exactly 2 candidates</p>
+                        <div class="selection-counter">
+                            Selected: <span id="uucCount">0</span> / 2
+                        </div>
+
+                        <div class="candidates-grid">
+                            <div class="candidate-vote-card">
+                                <input type="checkbox" name="uuc" value="SP002" id="uuc-sp" onchange="limitCheckboxes('uuc', 2)">
+                                <label for="uuc-sp" class="candidate-label">
+                                    <div class="candidate-photo">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect fill='%234f46e5' width='120' height='120'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dy='.3em'%3ESP%3C/text%3E%3C/svg%3E" alt="Photo">
+                                    </div>
+                                    <div class="candidate-details">
+                                        <h5>Sarah Patel</h5>
+                                        <p class="candidate-reg">CS004</p>
+                                        <p class="candidate-dept">Computer Science - UG</p>
+                                        <button type="button" class="btn-manifesto" onclick="viewCandidateManifesto('SP002', event)">View Manifesto</button>
+                                    </div>
+                                    <div class="vote-indicator">✓ Selected</div>
+                                </label>
+                            </div>
+
+                            <div class="candidate-vote-card">
+                                <input type="checkbox" name="uuc" value="RS002" id="uuc-rs" onchange="limitCheckboxes('uuc', 2)">
+                                <label for="uuc-rs" class="candidate-label">
+                                    <div class="candidate-photo">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect fill='%2310b981' width='120' height='120'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dy='.3em'%3ERS%3C/text%3E%3C/svg%3E" alt="Photo">
+                                    </div>
+                                    <div class="candidate-details">
+                                        <h5>Rahul Sharma</h5>
+                                        <p class="candidate-reg">EC008</p>
+                                        <p class="candidate-dept">Electronics - PG</p>
+                                        <button type="button" class="btn-manifesto" onclick="viewCandidateManifesto('RS002', event)">View Manifesto</button>
+                                    </div>
+                                    <div class="vote-indicator">✓ Selected</div>
+                                </label>
+                            </div>
+
+                            <div class="candidate-vote-card">
+                                <input type="checkbox" name="uuc" value="PM001" id="uuc-pm" onchange="limitCheckboxes('uuc', 2)">
+                                <label for="uuc-pm" class="candidate-label">
+                                    <div class="candidate-photo">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect fill='%23f59e0b' width='120' height='120'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dy='.3em'%3EPM%3C/text%3E%3C/svg%3E" alt="Photo">
+                                    </div>
+                                    <div class="candidate-details">
+                                        <h5>Priya Menon</h5>
+                                        <p class="candidate-reg">ME009</p>
+                                        <p class="candidate-dept">Mechanical - UG</p>
+                                        <button type="button" class="btn-manifesto" onclick="viewCandidateManifesto('PM001', event)">View Manifesto</button>
+                                    </div>
+                                    <div class="vote-indicator">✓ Selected</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+
+        <!-- SEATS ROW 3 -->
+        <div class="seats-row">
+            <!-- DEPARTMENT REPRESENTATIVE SECTION -->
+            <div class="voting-section section-dept">
+                        <h3 class="section-title">Department Representative</h3>
+                        <p class="section-desc">Vote for your department representative (Computer Science - UG)</p>
+
+                        <div class="candidates-grid">
+                            <div class="candidate-vote-card">
+                                <input type="radio" name="dept-rep" value="LC001" id="dept-lc">
+                                <label for="dept-lc" class="candidate-label">
+                                    <div class="candidate-photo">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect fill='%238b5cf6' width='120' height='120'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dy='.3em'%3ELC%3C/text%3E%3C/svg%3E" alt="Photo">
+                                    </div>
+                                    <div class="candidate-details">
+                                        <h5>Lisa Chen</h5>
+                                        <p class="candidate-reg">CS010</p>
+                                        <p class="candidate-dept">Computer Science - UG</p>
+                                        <div class="candidate-slogan">"CS United, CS Strong"</div>
+                                        <button type="button" class="btn-manifesto" onclick="viewCandidateManifesto('LC001', event)">View Manifesto</button>
+                                    </div>
+                                    <div class="vote-indicator">✓ Selected</div>
+                                </label>
+                            </div>
+
+                            <div class="candidate-vote-card">
+                                <input type="radio" name="dept-rep" value="AV001" id="dept-av">
+                                <label for="dept-av" class="candidate-label">
+                                    <div class="candidate-photo">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect fill='%23ef4444' width='120' height='120'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dy='.3em'%3EAV%3C/text%3E%3C/svg%3E" alt="Photo">
+                                    </div>
+                                    <div class="candidate-details">
+                                        <h5>Amit Verma</h5>
+                                        <p class="candidate-reg">CS011</p>
+                                        <p class="candidate-dept">Computer Science - UG</p>
+                                        <div class="candidate-slogan">"Tech Together, Grow Together"</div>
+                                        <button type="button" class="btn-manifesto" onclick="viewCandidateManifesto('AV001', event)">View Manifesto</button>
+                                    </div>
+                                    <div class="vote-indicator">✓ Selected</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LADY REPRESENTATIVES SECTION (Only for female students) -->
+                    <div class="voting-section section-lady" id="ladyRepSection">
+                        <h3 class="section-title">Lady Representatives</h3>
+                        <p class="section-desc">Select exactly 2 candidates</p>
+                        <div class="selection-counter">
+                            Selected: <span id="ladyCount">0</span> / 2
+                        </div>
+
+                        <div class="candidates-grid">
+                            <div class="candidate-vote-card">
+                                <input type="checkbox" name="lady-rep" value="MK002" id="lady-mk" onchange="limitCheckboxes('lady-rep', 2)">
+                                <label for="lady-mk" class="candidate-label">
+                                    <div class="candidate-photo">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect fill='%23ec4899' width='120' height='120'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dy='.3em'%3EMK%3C/text%3E%3C/svg%3E" alt="Photo">
+                                    </div>
+                                    <div class="candidate-details">
+                                        <h5>Maya Krishnan</h5>
+                                        <p class="candidate-reg">CS015</p>
+                                        <p class="candidate-dept">Computer Science - UG</p>
+                                        <button type="button" class="btn-manifesto" onclick="viewCandidateManifesto('MK002', event)">View Manifesto</button>
+                                    </div>
+                                    <div class="vote-indicator">✓ Selected</div>
+                                </label>
+                            </div>
+
+                            <div class="candidate-vote-card">
+                                <input type="checkbox" name="lady-rep" value="AD001" id="lady-ad" onchange="limitCheckboxes('lady-rep', 2)">
+                                <label for="lady-ad" class="candidate-label">
+                                    <div class="candidate-photo">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect fill='%2314b8a6' width='120' height='120'/%3E%3Ctext x='50%25' y='50%25' font-size='48' fill='white' text-anchor='middle' dy='.3em'%3EAD%3C/text%3E%3C/svg%3E" alt="Photo">
+                                    </div>
+                                    <div class="candidate-details">
+                                        <h5>Anjali Desai</h5>
+                                        <p class="candidate-reg">EC016</p>
+                                        <p class="candidate-dept">Electronics - UG</p>
+                                        <button type="button" class="btn-manifesto" onclick="viewCandidateManifesto('AD001', event)">View Manifesto</button>
+                                    </div>
+                                    <div class="vote-indicator">✓ Selected</div>
+                                </label>
+                            </div>
+                    </div>
+                </div> <!-- seats-flex-container -->
+
+                    <!-- Submit Section -->
+                    <div class="voting-submit-section">
+                        <div class="submit-warning">
+                            <h4>⚠️ Important</h4>
+                            <ul>
+                                <li>Review all your selections carefully</li>
+                                <li>Once submitted, you cannot change your vote</li>
+                                <li>Make sure you have voted in all applicable categories</li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn-primary btn-large" onclick="showConfirmModal()">Review & Submit Vote</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Manifesto Modal -->
+    <div id="manifestoModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Candidate Manifesto</h2>
+                <button class="modal-close" onclick="closeManifestoModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="manifesto-view">
+                    <div class="candidate-header-view">
+                        <div class="candidate-photo-large">
+                            <img id="manifestoCandidatePhoto" src="" alt="Photo">
+                        </div>
+                        <div>
+                            <h3 id="manifestoCandidateName">Candidate Name</h3>
+                            <p id="manifestoCandidateReg">Register Number</p>
+                            <p id="manifestoCandidateDept">Department</p>
+                        </div>
+                    </div>
+                    <div id="manifestoContent">
+                        <p>Manifesto content will be displayed here...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeManifestoModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚠️ Confirm Your Vote</h2>
+                <button class="modal-close" onclick="closeConfirmModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Please review your selections:</strong></p>
+                <div id="voteReview" class="vote-review-list">
+                    <!-- Vote summary will be displayed here -->
+                </div>
+                <div class="warning-box">
+                    ⚠️ Once you submit, you CANNOT change your vote. Are you sure you want to proceed?
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeConfirmModal()">Cancel</button>
+                <button class="btn-primary" onclick="submitVote()">Confirm & Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header success">
+                <h2>✅ Vote Submitted Successfully!</h2>
+            </div>
+            <div class="modal-body">
+                <div class="success-icon-large">🎉</div>
+                <p>Thank you for participating in the college union election.</p>
+                <p>Your vote has been recorded securely.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="window.location.href='student_dashboard.html'">Back to Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="student.js"></script>
+</body>
+</html>
