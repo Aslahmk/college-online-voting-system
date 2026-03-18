@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Results - College Voting</title>
+<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="student.css">
+
+
+
+</head>
+<body>
+    <div class="admin-layout results-page">
+
+        <!-- Top Navigation Bar -->
+        <div class="admin-topbar">
+            <div class="topbar-brand">
+                <h2>🎓 College Union Voting</h2>
+                <p>Student Portal</p>
+            </div>
+            <nav class="admin-nav">
+                <a href="student_dashboard.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="student_profile.html" class="nav-item">
+                    <span class="nav-icon">👤</span>
+                    <span class="nav-text">Profile</span>
+                </a>
+                <a href="student_apply.html" class="nav-item">
+                    <span class="nav-icon">📝</span>
+                    <span class="nav-text">Apply</span>
+                </a>
+                <a href="student_vote.html" class="nav-item">
+                    <span class="nav-icon">🗳️</span>
+                    <span class="nav-text">Vote</span>
+                </a>
+                <a href="student_results.html" class="nav-item active">
+                    <span class="nav-icon">🏆</span>
+                    <span class="nav-text">Results</span>
+                </a>
+            </nav>
+            <div class="topbar-actions">
+                <div class="admin-profile">
+                    <span>Student</span>
+                    <div class="avatar">S</div>
+                </div>
+                <a href="student_login.html" class="btn-logout">Logout</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="admin-main full-width-results">  
+<div class="admin-topbar-old">
+                <h1>Election Results 🏆</h1>
+                <p>College Union Election Results</p>
+                <div class="results-meta">
+                    <span class="meta-item">📅 March 6, 2024</span>
+                    <span class="meta-item">🗳️ 187 votes cast</span>
+                    <span class="meta-item">📊 79.9% turnout</span>
+                </div>
+            </div>
+
+            <div class="voting-container">
+                <div class="student-content results-content full-width">  
+                <!-- Overall Stats -->
+                <div class="results-stats-student">
+
+                    <div class="stat-box">
+                        <h3>234</h3>
+                        <p>Total Voters</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>187</h3>
+                        <p>Votes Cast</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>79.9%</h3>
+                        <p>Turnout</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>19</h3>
+                        <p>Winners</p>
+                    </div>
+                </div>
+
+                <!-- General Seats Winners -->
+                <div class="results-category">
+                    <h3 class="category-title">🏆 General Seats</h3>
+
+                    <div class="results-row">
+                        <!-- Chairman -->
+                        <div class="result-item">
+                            <div class="result-position">
+                                <h4>Chairman</h4>
+                            </div>
+                            <div class="winner-card">
+                                <div class="winner-badge-large">🏆 Winner</div>
+                                <div class="winner-info">
+                                    <div class="winner-photo">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%234f46e5' width='100' height='100'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dy='.3em'%3EJD%3C/text%3E%3C/svg%3E" alt="Photo">
+                                    </div>
+                                    <div class="winner-details">
+                                        <h5>John Doe</h5>
+                                        <p>CS001 - Computer Science UG</p>
+                                        <div class="vote-info">
+                                            <span class="votes">124 votes</span>
+                                            <span class="percentage">66.3%</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 66.3%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="other-candidates">
+                                <div class="candidate-result-small">
+                                    <span class="candidate-name">Robert Kumar (EC005)</span>
+                                    <span class="candidate-votes">63 votes (33.7%)</span>
+                                    <div class="progress-bar-small">
+                                        <div class="progress-fill-small" style="width: 33.7%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vice Chairman -->
+                        <div class="result-item">
+                            <div class="result-position">
+                                <h4>Vice Chairman</h4>
+                            </div>
+                            <div class="winner-card">
+                                <div class="winner-badge-large">🏆 Winner</div>
+                                <div class="winner-info">
+                                    <div class="winner-photo">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%2310b981' width='100' height='100'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dy='.3em'%3EJS%3C/text%3E%3C/svg%3E" alt="Photo">
+                                    </div>
+                                    <div class="winner-details">
+                                        <h5>Jane Smith</h5>
+                                        <p>EC002 - Electronics UG</p>
+                                        <div class="vote-info">
+                                            <span class="votes">142 votes</span>
+                                            <span class="percentage">75.9%</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 75.9%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="other-candidates">
+                                <div class="candidate-result-small">
+                                    <span class="candidate-name">Alex Johnson (ME006)</span>
+                                    <span class="candidate-votes">45 votes (24.1%)</span>
+                                    <div class="progress-bar-small">
+                                        <div class="progress-fill-small" style="width: 24.1%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- General Secretary -->
+                    <div class="result-item">
+                        <div class="result-position">
+                            <h4>General Secretary</h4>
+                        </div>
+                        <div class="winner-card">
+                            <div class="winner-badge-large">🏆 Winner</div>
+                            <div class="winner-info">
+                                <div class="winner-photo">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%238b5cf6' width='100' height='100'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dy='.3em'%3EMK%3C/text%3E%3C/svg%3E" alt="Photo">
+                                </div>
+                                <div class="winner-details">
+                                    <h5>Mike Kumar</h5>
+                                    <p>ME003 - Mechanical PG</p>
+                                    <div class="vote-info">
+                                        <span class="votes">98 votes</span>
+                                        <span class="percentage">52.4%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 52.4%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other-candidates">
+                            <div class="candidate-result-small">
+                                <span class="candidate-name">David Lee (CS007)</span>
+                                <span class="candidate-votes">89 votes (47.6%)</span>
+                                <div class="progress-bar-small">
+                                    <div class="progress-fill-small" style="width: 47.6%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Arts Club Secretary -->
+                    <div class="result-item">
+                        <div class="result-position">
+                            <h4>Arts Club Secretary</h4>
+                        </div>
+                        <div class="winner-card">
+                            <div class="winner-badge-large">🏆 Winner</div>
+                            <div class="winner-info">
+                                <div class="winner-photo">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%23ec4899' width='100' height='100'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dy='.3em'%3ESP%3C/text%3E%3C/svg%3E" alt="Photo">
+                                </div>
+                                <div class="winner-details">
+                                    <h5>Sarah Patel</h5>
+                                    <p>CS004 - Computer Science UG</p>
+                                    <div class="vote-info">
+                                        <span class="votes">156 votes</span>
+                                        <span class="percentage">83.4%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 83.4%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Magazine Editor -->
+                    <div class="result-item">
+                        <div class="result-position">
+                            <h4>Magazine Editor</h4>
+                        </div>
+                        <div class="winner-card">
+                            <div class="winner-badge-large">🏆 Winner</div>
+                            <div class="winner-info">
+                                <div class="winner-photo">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%2314b8a6' width='100' height='100'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='white' text-anchor='middle' dy='.3em'%3ERS%3C/text%3E%3C/svg%3E" alt="Photo">
+                                </div>
+                                <div class="winner-details">
+                                    <h5>Rahul Sharma</h5>
+                                    <p>EC008 - Electronics PG</p>
+                                    <div class="vote-info">
+                                        <span class="votes">134 votes</span>
+                                        <span class="percentage">71.7%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 71.7%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UUC Representatives -->
+                <div class="results-category">
+                    <h3 class="category-title">🎓 UUC Representatives (Top 2)</h3>
+                    <div class="multi-winner-grid">
+                        <div class="winner-card-compact">
+                            <div class="winner-badge-compact">🏆</div>
+                            <div class="winner-photo-compact">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect fill='%234f46e5' width='80' height='80'/%3E%3Ctext x='50%25' y='50%25' font-size='32' fill='white' text-anchor='middle' dy='.3em'%3ESP%3C/text%3E%3C/svg%3E" alt="Photo">
+                            </div>
+                            <h5>Sarah Patel</h5>
+                            <p>CS004 - Computer Science UG</p>
+                            <div class="vote-compact">156 votes (83.4%)</div>
+                        </div>
+
+                        <div class="winner-card-compact">
+                            <div class="winner-badge-compact">🏆</div>
+                            <div class="winner-photo-compact">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect fill='%2310b981' width='80' height='80'/%3E%3Ctext x='50%25' y='50%25' font-size='32' fill='white' text-anchor='middle' dy='.3em'%3ERS%3C/text%3E%3C/svg%3E" alt="Photo">
+                            </div>
+                            <h5>Rahul Sharma</h5>
+                            <p>EC008 - Electronics PG</p>
+                            <div class="vote-compact">134 votes (71.7%)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Department Representatives -->
+                <div class="results-category">
+                    <h3 class="category-title">🏫 Department Representatives</h3>
+                    <div class="dept-results-student">
+                        <div class="dept-winner-card">
+                            <h4>CS UG Representative</h4>
+                            <div class="dept-winner-info">
+                                <span class="winner-icon">🏆</span>
+                                <div>
+                                    <strong>Lisa Chen</strong>
+                                    <p>CS010 - 98 votes (78%)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dept-winner-card">
+                            <h4>CS PG Representative</h4>
+                            <div class="dept-winner-info">
+                                <span class="winner-icon">🏆</span>
+                                <div>
+                                    <strong>Amit Verma</strong>
+                                    <p>CS011 - 34 votes (85%)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dept-winner-card">
+                            <h4>EC UG Representative</h4>
+                            <div class="dept-winner-info">
+                                <span class="winner-icon">🏆</span>
+                                <div>
+                                    <strong>Nina Joseph</strong>
+                                    <p>EC012 - 76 votes (71%)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dept-winner-card">
+                            <h4>ME UG Representative</h4>
+                            <div class="dept-winner-info">
+                                <span class="winner-icon">🏆</span>
+                                <div>
+                                    <strong>Karthik Nair</strong>
+                                    <p>ME013 - 65 votes (69%)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lady Representatives -->
+                <div class="results-category">
+                    <h3 class="category-title">👩‍🎓 Lady Representatives (Top 2)</h3>
+                    <div class="multi-winner-grid">
+                        <div class="winner-card-compact">
+                            <div class="winner-badge-compact">🏆</div>
+                            <div class="winner-photo-compact">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect fill='%23ec4899' width='80' height='80'/%3E%3Ctext x='50%25' y='50%25' font-size='32' fill='white' text-anchor='middle' dy='.3em'%3EMK%3C/text%3E%3C/svg%3E" alt="Photo">
+                            </div>
+                            <h5>Maya Krishnan</h5>
+                            <p>CS015 - Computer Science UG</p>
+                            <div class="vote-compact">78 votes (81.3%)</div>
+                        </div>
+
+                        <div class="winner-card-compact">
+                            <div class="winner-badge-compact">🏆</div>
+                            <div class="winner-photo-compact">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect fill='%2314b8a6' width='80' height='80'/%3E%3Ctext x='50%25' y='50%25' font-size='32' fill='white' text-anchor='middle' dy='.3em'%3EAD%3C/text%3E%3C/svg%3E" alt="Photo">
+                            </div>
+                            <h5>Anjali Desai</h5>
+                            <p>EC016 - Electronics UG</p>
+                            <div class="vote-compact">67 votes (69.8%)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Congratulations Message -->
+                <div class="congratulations-box">
+                    <h3>🎉 Congratulations to All Winners!</h3>
+                    <p>Thank you to everyone who participated in this democratic process. Your vote counts!</p>
+                </div>
+            </div>
+            </div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="student.js"></script>
+</body>
+</html>
