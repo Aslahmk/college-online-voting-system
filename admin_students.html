@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management - Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Top Navigation Bar -->
+        <div class="admin-topbar">
+            <div class="topbar-brand">
+                <h2>🏛️ Admin Panel</h2>
+                <p>College Admin</p>
+            </div>
+            <nav class="admin-nav">
+                <a href="admin_dashboard.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="admin_departments.html" class="nav-item">
+                    <span class="nav-icon">🏫</span>
+                    <span class="nav-text">Departments</span>
+                </a>
+                <a href="admin_students.html" class="nav-item">
+                    <span class="nav-icon">👥</span>
+                    <span class="nav-text">Students</span>
+                </a>
+                <a href="admin_candidates.html" class="nav-item">
+                    <span class="nav-icon">✅</span>
+                    <span class="nav-text">Candidates</span>
+                </a>
+                <a href="admin_election.html" class="nav-item">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">Election</span>
+                </a>
+                <a href="admin_results.html" class="nav-item">
+                    <span class="nav-icon">🏆</span>
+                    <span class="nav-text">Results</span>
+                </a>
+            </nav>
+            <div class="topbar-actions">
+                <div class="admin-profile">
+                    <span>Admin</span>
+                    <div class="avatar">A</div>
+                </div>
+                <a href="college_login.html" class="btn-logout">Logout</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-topbar-old">
+                <h1>Student Management</h1>
+                <div class="topbar-actions">
+                    <button class="btn-primary" onclick="openAddStudentModal()">➕ Add Student</button>
+                    <button class="btn-secondary" onclick="openUploadCSVModal()">📤 Upload CSV</button>
+                </div>
+            </div>
+
+            <div class="admin-content">
+                <!-- Filters and Search -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2>👥 Student Records</h2>
+                    </div>
+                    <div class="table-controls">
+                        <div class="search-box">
+                            <input type="text" id="searchStudent" placeholder="Search by name, register number, or email...">
+                            <span class="search-icon">🔍</span>
+                        </div>
+                        <div class="filter-group">
+                            <select id="departmentFilter" class="filter-select">
+                                <option value="">All Departments</option>
+                            </select>
+                            <select id="levelFilter" class="filter-select">
+                                <option value="">All Levels</option>
+                                <option value="UG">UG</option>
+                                <option value="PG">PG</option>
+                            </select>
+                            <select id="genderFilter" class="filter-select">
+                                <option value="">All Genders</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Students Table -->
+                    <div class="data-table">
+                        <table id="studentsTable">
+                            <thead>
+                                <tr>
+                                    <th>Register No.</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Department</th>
+                                    <th>Program</th>
+                                    <th>Level</th>
+                                    <th>Gender</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentTableBody">
+                                <tr>
+                                    <td colspan="9" style="text-align:center;color:#6b7280;">No students added yet.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="btn-pagination">Previous</button>
+                        <span class="pagination-info">Showing 0-0 of 0 students</span>
+                        <button class="btn-pagination">Next</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Student Modal -->
+    <div id="addStudentModal" class="modal">
+        <div class="modal-content modal-card">
+            <div class="modal-header-custom">
+                <div class="modal-title-section">
+                    <h2>👥 Add New Student</h2>
+                    <p>Fill in the student details below</p>
+                </div>
+                <button class="modal-close" onclick="closeAddStudentModal()">×</button>
+            </div>
+            <form id="addStudentForm" class="modal-form-custom">
+                <!-- Personal Information Section -->
+                <div class="form-section">
+                    <h3 class="section-title-custom">Personal Information</h3>
+                    <div class="form-row">
+                        <div class="form-group-custom">
+                            <label for="studentName">Name *</label>
+                            <input type="text" id="studentName" name="name" required placeholder="Full name">
+                        </div>
+                        <div class="form-group-custom">
+                            <label for="registerNo">Register Number *</label>
+                            <input type="text" id="registerNo" name="registerNo" required placeholder="e.g., CS001">
+                        </div>
+                    </div>
+                    <div class="form-group-custom">
+                        <label for="studentEmail">Email *</label>
+                        <input type="email" id="studentEmail" name="email" required placeholder="student@college.edu">
+                    </div>
+                </div>
+
+                <!-- Academic Details Section -->
+                <div class="form-section">
+                    <h3 class="section-title-custom">Academic Details</h3>
+                    <div class="form-row">
+                        <div class="form-group-custom">
+                            <label for="studentDepartment">Department *</label>
+                            <select id="studentDepartment" name="department" required class="select-custom">
+                                <option value="">No departments available. Add department first.</option>
+                            </select>
+                        </div>
+                        <div class="form-group-custom">
+                            <label for="studentLevel">Level *</label>
+                            <select id="studentLevel" name="level" required class="select-custom">
+                                <option value="">Select Level</option>
+                                <option value="UG">UG</option>
+                                <option value="PG">PG</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group-custom">
+                        <label for="studentGender">Gender *</label>
+                        <select id="studentGender" name="gender" required class="select-custom">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="modal-footer-custom">
+                    <button type="button" class="btn-cancel" onclick="closeAddStudentModal()">Cancel</button>
+                    <button type="submit" class="btn-submit">Add Student</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Upload CSV Modal -->
+    <div id="uploadCSVModal" class="modal">
+        <div class="modal-content modal-card">
+            <div class="modal-header-custom">
+                <div class="modal-title-section">
+                    <h2>📤 Upload Students File</h2>
+                    <p>Upload a CSV file exported from Excel/Sheets</p>
+                </div>
+                <button class="modal-close" onclick="closeUploadCSVModal()">×</button>
+            </div>
+            <div class="modal-form-custom">
+                <div class="form-section">
+                    <h3 class="section-title-custom">File Upload</h3>
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">📄</div>
+                        <p>Drag and drop file here or click to browse</p>
+                        <input type="file" id="csvFile" accept=".csv,.xls,.xlsx" style="display:none;">
+                        <button type="button" class="btn-submit" onclick="document.getElementById('csvFile').click()">Choose File</button>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3 class="section-title-custom">Format Requirements</h3>
+                    <div class="upload-info">
+                        <ul>
+                            <li>Columns: Name, Register Number, Email, Department, Level, Gender</li>
+                            <li>First row should be headers</li>
+                            <li>Maximum 1000 records per upload</li>
+                            <li>If you have Excel (.xlsx), save it as CSV before uploading</li>
+                        </ul>
+                        <a href="#" class="btn-link">Download Sample CSV</a>
+                    </div>
+                </div>
+                <div class="modal-footer-custom">
+                    <button type="button" class="btn-cancel" onclick="closeUploadCSVModal()">Cancel</button>
+                    <button type="button" class="btn-submit" onclick="uploadCSV()">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Credentials Modal -->
+    <div id="credentialsModal" class="modal">
+        <div class="modal-content modal-card" style="max-width: 400px;">
+            <div class="modal-header-custom">
+                <div class="modal-title-section">
+                    <h2>✅ Student Added Successfully</h2>
+                    <p>Save these credentials for the student</p>
+                </div>
+            </div>
+            <div class="modal-form-custom">
+                <div class="form-section">
+                    <div class="credentials-box" style="background: #f3f4f6; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; font-size: 12px; color: #6b7280; margin-bottom: 4px;">Register Number</label>
+                            <div id="credRegisterNo" style="font-size: 18px; font-weight: 600; color: #111827;"></div>
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 12px; color: #6b7280; margin-bottom: 4px;">Password</label>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div id="credPassword" style="font-size: 18px; font-weight: 600; color: #111827; font-family: monospace;"></div>
+                                <button type="button" onclick="copyPassword()" class="btn-secondary" style="padding: 6px 12px; font-size: 12px;">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color: #ef4444; font-size: 13px; margin: 0;">⚠️ This password will not be shown again. Please save it now!</p>
+                </div>
+                <div class="modal-footer-custom">
+                    <button type="button" class="btn-submit" onclick="closeCredentialsModal()">I've Saved It</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js?v=8"></script>
+</body>
+</html>

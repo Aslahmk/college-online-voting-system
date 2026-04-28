@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Election Results - College Voting</title>
+<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="student.css">
+
+
+
+</head>
+<body>
+    <div class="admin-layout results-page">
+
+        <!-- Top Navigation Bar -->
+        <div class="admin-topbar">
+            <div class="topbar-brand">
+                <h2>🎓 College Union Voting</h2>
+                <p>Student Portal</p>
+            </div>
+            <nav class="admin-nav">
+                <a href="student_dashboard.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="student_profile.html" class="nav-item">
+                    <span class="nav-icon">👤</span>
+                    <span class="nav-text">Profile</span>
+                </a>
+                <a href="student_apply.html" class="nav-item">
+                    <span class="nav-icon">📝</span>
+                    <span class="nav-text">Apply</span>
+                </a>
+                <a href="student_vote.html" class="nav-item">
+                    <span class="nav-icon">🗳️</span>
+                    <span class="nav-text">Vote</span>
+                </a>
+                <a href="student_results.html" class="nav-item active">
+                    <span class="nav-icon">🏆</span>
+                    <span class="nav-text">Results</span>
+                </a>
+            </nav>
+            <div class="topbar-actions">
+                <div class="admin-profile">
+                    <span id="studentName">Student</span>
+                    <div class="avatar" id="studentAvatar">S</div>
+                </div>
+                <a href="student_login.html" class="btn-logout">Logout</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="admin-main full-width-results">  
+<div class="admin-topbar-old">
+                <h1>Election Results 🏆</h1>
+                <p>Published election results</p>
+                <div class="results-meta">
+                    <span class="meta-item">📅 -</span>
+                    <span class="meta-item">🗳️ -</span>
+                    <span class="meta-item">📊 -</span>
+                </div>
+            </div>
+
+            <div class="voting-container">
+                <div class="student-content results-content full-width">  
+                <!-- Overall Stats -->
+                <div class="results-stats-student">
+
+                    <div class="stat-box">
+                        <h3>-</h3>
+                        <p>Total Voters</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>-</h3>
+                        <p>Votes Cast</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>-</h3>
+                        <p>Turnout</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>-</h3>
+                        <p>Winners</p>
+                    </div>
+                </div>
+
+                <div class="results-category">
+                    <h3 class="category-title">No published results</h3>
+                    <div class="congratulations-box">
+                        <p>Results will appear here only after admin publishes them.</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="student.js?v=14"></script>
+</body>
+</html>

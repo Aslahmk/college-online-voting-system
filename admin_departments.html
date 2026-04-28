@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Department Management - Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Top Navigation Bar -->
+        <div class="admin-topbar">
+            <div class="topbar-brand">
+                <h2>🏛️ Admin Panel</h2>
+                <p>College Admin</p>
+            </div>
+            <nav class="admin-nav">
+                <a href="admin_dashboard.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="admin_departments.html" class="nav-item active">
+                    <span class="nav-icon">🏫</span>
+                    <span class="nav-text">Departments</span>
+                </a>
+                <a href="admin_students.html" class="nav-item">
+                    <span class="nav-icon">👥</span>
+                    <span class="nav-text">Students</span>
+                </a>
+                <a href="admin_candidates.html" class="nav-item">
+                    <span class="nav-icon">✅</span>
+                    <span class="nav-text">Candidates</span>
+                </a>
+                <a href="admin_election.html" class="nav-item">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">Election</span>
+                </a>
+                <a href="admin_results.html" class="nav-item">
+                    <span class="nav-icon">🏆</span>
+                    <span class="nav-text">Results</span>
+                </a>
+            </nav>
+            <div class="topbar-actions">
+                <div class="admin-profile">
+                    <span>Admin</span>
+                    <div class="avatar">A</div>
+                </div>
+                <a href="college_login.html" class="btn-logout">Logout</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-topbar-old">
+                <h1>🏫 Department Management</h1>
+                <div class="topbar-actions">
+                    <button class="btn-primary" onclick="openAddDepartmentModal()">➕ Add Department</button>
+                </div>
+            </div>
+
+            <div class="admin-content">
+                <!-- Filters and Search -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2>All Departments</h2>
+                    </div>
+                    <div class="table-controls">
+                        <div class="search-box">
+                            <input type="text" id="searchDepartment" placeholder="Search by department name or code...">
+                            <span class="search-icon">🔍</span>
+                        </div>
+                        <div class="filter-group">
+                            <select id="statusFilter" class="filter-select">
+                                <option value="">All Status</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Departments Table -->
+                    <div class="data-table">
+                        <table id="departmentsTable">
+                            <thead>
+                                <tr>
+                                    <th>Dept. Code</th>
+                                    <th>Department Name</th>
+                                    <th>UG Programs</th>
+                                    <th>PG Programs</th>
+                                    <th>Students</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="departmentTableBody">
+                                <tr>
+                                    <td colspan="7" style="text-align:center;color:#6b7280;">No departments added yet.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="btn-pagination">Previous</button>
+                        <span class="pagination-info">Showing 0-0 of 0 departments</span>
+                        <button class="btn-pagination">Next</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Department Modal -->
+    <div id="addDepartmentModal" class="modal">
+        <div class="modal-content modal-card">
+            <div class="modal-header-custom">
+                <div class="modal-title-section">
+                    <h2>🏫 Add New Department</h2>
+                    <p>Fill in the department details below</p>
+                </div>
+                <button class="modal-close" onclick="closeAddDepartmentModal()">×</button>
+            </div>
+            <form id="addDepartmentForm" class="modal-form-custom">
+                <!-- Basic Information Section -->
+                <div class="form-section">
+                    <h3 class="section-title-custom">Basic Information</h3>
+                    <div class="form-row">
+                        <div class="form-group-custom">
+                            <label for="deptCode">Department Code *</label>
+                            <input type="text" id="deptCode" name="deptCode" required placeholder="e.g., CS, EC, ME" maxlength="5" style="text-transform: uppercase;">
+                        </div>
+                        <div class="form-group-custom">
+                            <label for="deptName">Department Name *</label>
+                            <input type="text" id="deptName" name="deptName" required placeholder="e.g., Computer Science">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programs Section -->
+                <div class="form-section">
+                    <h3 class="section-title-custom">Programs Offered</h3>
+                    <div class="form-group-custom">
+                        <label for="ugPrograms">UG Programs</label>
+                        <input type="text" id="ugPrograms" name="ugPrograms" placeholder="e.g., B.Tech, B.E., BSc">
+                        <small class="input-hint">Comma separated values</small>
+                    </div>
+                    <div class="form-group-custom">
+                        <label for="pgPrograms">PG Programs</label>
+                        <input type="text" id="pgPrograms" name="pgPrograms" placeholder="e.g., M.Tech, M.Sc, MBA">
+                        <small class="input-hint">Comma separated values</small>
+                    </div>
+                </div>
+
+                <!-- Status Section -->
+                <div class="form-section">
+                    <h3 class="section-title-custom">Status</h3>
+                    <div class="form-group-custom">
+                        <label for="status">Department Status</label>
+                        <select id="status" name="status" class="select-custom">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="modal-footer-custom">
+                    <button type="button" class="btn-cancel" onclick="closeAddDepartmentModal()">Cancel</button>
+                    <button type="submit" class="btn-submit">Add Department</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Department Modal -->
+    <div id="editDepartmentModal" class="modal">
+        <div class="modal-content modal-card">
+            <div class="modal-header-custom">
+                <div class="modal-title-section">
+                    <h2>✏️ Edit Department</h2>
+                    <p>Update the department details below</p>
+                </div>
+                <button class="modal-close" onclick="closeEditDepartmentModal()">×</button>
+            </div>
+            <form id="editDepartmentForm" class="modal-form-custom">
+                <input type="hidden" name="deptCode" id="editDeptCode">
+                
+                <!-- Basic Information Section -->
+                <div class="form-section">
+                    <h3 class="section-title-custom">Basic Information</h3>
+                    <div class="form-row">
+                        <div class="form-group-custom">
+                            <label for="editDeptCodeDisplay">Department Code *</label>
+                            <input type="text" name="deptCode" id="editDeptCodeDisplay" required placeholder="e.g., CS" maxlength="5" style="text-transform: uppercase;" readonly>
+                        </div>
+                        <div class="form-group-custom">
+                            <label for="editDeptName">Department Name *</label>
+                            <input type="text" name="deptName" id="editDeptName" required placeholder="e.g., Computer Science">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programs Section -->
+                <div class="form-section">
+                    <h3 class="section-title-custom">Programs Offered</h3>
+                    <div class="form-group-custom">
+                        <label for="editUgPrograms">UG Programs</label>
+                        <input type="text" name="ugPrograms" id="editUgPrograms" placeholder="e.g., B.Tech, B.E., BSc">
+                        <small class="input-hint">Comma separated values</small>
+                    </div>
+                    <div class="form-group-custom">
+                        <label for="editPgPrograms">PG Programs</label>
+                        <input type="text" name="pgPrograms" id="editPgPrograms" placeholder="e.g., M.Tech, M.Sc, MBA">
+                        <small class="input-hint">Comma separated values</small>
+                    </div>
+                </div>
+
+                <!-- Status Section -->
+                <div class="form-section">
+                    <h3 class="section-title-custom">Status</h3>
+                    <div class="form-group-custom">
+                        <label for="editStatus">Department Status</label>
+                        <select name="status" id="editStatus" class="select-custom">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="modal-footer-custom">
+                    <button type="button" class="btn-cancel" onclick="closeEditDepartmentModal()">Cancel</button>
+                    <button type="submit" class="btn-submit">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js?v=9"></script>
+</body>
+</html>
+

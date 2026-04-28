@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - College Voting</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Top Navigation Bar -->
+        <div class="admin-topbar">
+            <div class="topbar-brand">
+                <h2>🏛️ Admin Panel</h2>
+                <p id="collegeName">TKM College</p>
+            </div>
+            <nav class="admin-nav">
+                <a href="admin_dashboard.html" class="nav-item active">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="admin_departments.html" class="nav-item">
+                    <span class="nav-icon">🏫</span>
+                    <span class="nav-text">Departments</span>
+                </a>
+                <a href="admin_students.html" class="nav-item">
+                    <span class="nav-icon">👥</span>
+                    <span class="nav-text">Students</span>
+                </a>
+                <a href="admin_candidates.html" class="nav-item">
+                    <span class="nav-icon">✅</span>
+                    <span class="nav-text">Candidates</span>
+                </a>
+                <a href="admin_election.html" class="nav-item">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">Election</span>
+                </a>
+                <a href="admin_results.html" class="nav-item">
+                    <span class="nav-icon">🏆</span>
+                    <span class="nav-text">Results</span>
+                </a>
+            </nav>
+            <div class="topbar-actions">
+                <div class="notification-icon">🔔 <span class="notification-badge">3</span></div>
+                <div class="admin-profile">
+                    <span>Admin</span>
+                    <div class="avatar">A</div>
+                </div>
+                <a href="college_login.html" class="btn-logout">Logout</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Page Header -->
+            <div class="admin-topbar-old">
+                <h1>Dashboard Overview</h1>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="admin-content">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card primary">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <h3 id="totalStudents">0</h3>
+                            <p>Total Students</p>
+                        </div>
+                        <div class="stat-trend positive">+12% this month</div>
+                    </div>
+
+                    <div class="stat-card secondary">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-info">
+                            <h3 id="totalCandidates">0</h3>
+                            <p>Total Candidates</p>
+                        </div>
+                        <div class="stat-trend positive">+5 pending</div>
+                    </div>
+
+                    <div class="stat-card success">
+                        <div class="stat-icon">🗳️</div>
+                        <div class="stat-info">
+                            <h3 id="activeElections">0</h3>
+                            <p>Active Elections</p>
+                        </div>
+                        <div class="stat-live-badge live">LIVE</div>
+                    </div>
+
+                    <div class="stat-card warning">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-info">
+                            <h3 id="votingPercentage">0%</h3>
+                            <p>Voting Turnout</p>
+                        </div>
+                        <div class="stat-trend">Real-time</div>
+                    </div>
+                </div>
+
+                <!-- Election Status -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Election Status</h2>
+                        <a href="admin_election.html" class="btn-primary">Configure Election</a>
+                    </div>
+                    <div class="election-status-card">
+                        <div class="status-indicator">
+                            <span class="status-dot live"></span>
+                            <span class="status-text" id="electionStatus">Election Not Started</span>
+                        </div>
+                        <div class="election-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>Setup Completed</h4>
+                                    <p>All configurations are in place</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item active">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>Election Live</h4>
+                                    <p id="electionDateInfo">Not scheduled yet</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>Voting Closed</h4>
+                                    <p>Results ready for publication</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>Results Published</h4>
+                                    <p>Visible to all students</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="dashboard-section">
+                    <h2>Quick Actions</h2>
+                    <div class="quick-actions">
+                        <a href="admin_students.html" class="action-card">
+                            <span class="action-icon">➕</span>
+                            <div class="action-content">
+                                <h3>Add Students</h3>
+                                <p>Register new students manually or bulk upload</p>
+                            </div>
+                        </a>
+                        <a href="admin_candidates.html" class="action-card">
+                            <span class="action-icon">✅</span>
+                            <div class="action-content">
+                                <h3>Approve Candidates</h3>
+                                <p>Review and approve pending applications</p>
+                            </div>
+                        </a>
+                        <a href="admin_election.html" class="action-card">
+                            <span class="action-icon">🚀</span>
+                            <div class="action-content">
+                                <h3>Start Election</h3>
+                                <p>Configure and activate voting process</p>
+                            </div>
+                        </a>
+                        <a href="admin_results.html" class="action-card">
+                            <span class="action-icon">📢</span>
+                            <div class="action-content">
+                                <h3>Publish Results</h3>
+                                <p>Make election results visible to students</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="dashboard-section">
+                    <h2>Recent Activity</h2>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon new">📝</div>
+                            <div class="activity-content">
+                                <h4>New candidate application</h4>
+                                <p>John Doe applied for General Secretary</p>
+                                <span class="activity-time">2 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon success">✅</div>
+                            <div class="activity-content">
+                                <h4>25 students added</h4>
+                                <p>Bulk upload completed successfully</p>
+                                <span class="activity-time">1 hour ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon info">🗳️</div>
+                            <div class="activity-content">
+                                <h4>150 votes cast</h4>
+                                <p>Current voting participation: 65%</p>
+                                <span class="activity-time">3 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Approved Candidates Preview -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2>✅ Final Candidates</h2>
+                        <a href="admin_candidates.html" class="btn-primary">Manage Candidates</a>
+                    </div>
+                    <p class="section-description">These candidates are approved and visible to students</p>
+                    <div class="final-candidates-grid" id="finalCandidatesPreview">
+                        <div class="final-candidate-card">
+                            <div class="candidate-photo-final">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Crect fill='%2310b981' width='60' height='60'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3EJS%3C/text%3E%3C/svg%3E" alt="Photo">
+                            </div>
+                            <div class="candidate-info-final">
+                                <h4>Jane Smith</h4>
+                                <p class="position-final">Vice Chairman</p>
+                                <p class="dept-final">Electronics - UG</p>
+                            </div>
+                        </div>
+                        <div class="final-candidate-card">
+                            <div class="candidate-photo-final">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Crect fill='%238b5cf6' width='60' height='60'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3ESP%3C/text%3E%3C/svg%3E" alt="Photo">
+                            </div>
+                            <div class="candidate-info-final">
+                                <h4>Sarah Patel</h4>
+                                <p class="position-final">Arts Club Secretary</p>
+                                <p class="dept-final">Computer Science - UG</p>
+                            </div>
+                        </div>
+                        <div class="final-candidate-card add-more">
+                            <div class="add-more-icon">+</div>
+                            <p>Add more candidates</p>
+                        </div>
+                    </div>
+                    <div class="public-view-section">
+                        <button class="btn-toggle-public" onclick="togglePublicView()">
+                            <span>👁️</span> Make Public / Hide from Students
+                        </button>
+                        <p class="public-status" id="publicStatus">Currently: <span class="status-hidden">Hidden from Students</span></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin.js?v=9"></script>
+</body>
+</html>

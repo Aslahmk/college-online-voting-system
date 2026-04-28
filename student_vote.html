@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cast Your Vote - College Voting</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="admin.css">
+        <link rel="stylesheet" href="student.css">
+
+    </head>
+    <body>
+        <div class="admin-layout">
+            <!-- Top Navigation Bar -->
+            <div class="admin-topbar">
+                <div class="topbar-brand">
+                    <h2>🎓 College Union Voting</h2>
+                    <p>Student Portal</p>
+                </div>
+                <nav class="admin-nav">
+                    <a href="student_dashboard.html" class="nav-item">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                    <a href="student_profile.html" class="nav-item">
+                        <span class="nav-icon">👤</span>
+                        <span class="nav-text">Profile</span>
+                    </a>
+                    <a href="student_apply.html" class="nav-item">
+                        <span class="nav-icon">📝</span>
+                        <span class="nav-text">Apply</span>
+                    </a>
+                    <a href="student_vote.html" class="nav-item active">
+                        <span class="nav-icon">🗳️</span>
+                        <span class="nav-text">Vote</span>
+                    </a>
+                    <a href="student_results.html" class="nav-item">
+                        <span class="nav-icon">🏆</span>
+                        <span class="nav-text">Results</span>
+                    </a>
+                </nav>
+                <div class="topbar-actions">
+                    <div class="admin-profile">
+                        <span id="studentName">Student</span>
+                        <div class="avatar" id="studentAvatar">S</div>
+                    </div>
+                    <a href="student_login.html" class="btn-logout">Logout</a>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <main class="admin-main">
+                <!-- Voting Header -->
+                <div class="admin-topbar-old">
+                    <h1>Cast Your Vote 🗳️</h1>
+                    <div class="voting-timer"
+                        style="margin-top: var(--spacing-md); font-size: 1rem;">
+                        <span class="timer-label">Time Remaining:</span>
+                        <span class="timer-value" id="votingTimer">-</span>
+                    </div>
+                </div>
+
+                <!-- Main Centered Voting Container -->
+                <div class="voting-container">
+                    <!-- Progress Indicator -->
+                    <div class="voting-progress">
+                        <div class="progress-steps">
+                            <div class="step active">
+                                <div class="step-number">1</div>
+                                <span>General Seats</span>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <span>UUC Reps</span>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <span>Department Rep</span>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <span>Lady Rep</span>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">5</div>
+                                <span>Review & Submit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="student-content voting-content">
+                        <form id="votingForm">
+                            <div class="voting-section general-seats-card">
+                                <h3 class="section-title">No active ballot</h3>
+                                <p class="section-desc">Candidates and positions will appear here after admin starts an election and approves candidates.</p>
+                            </div>
+                        </form>
+                        </div>
+                    </main>
+                </div>
+
+                <!-- Manifesto Modal -->
+                <div id="manifestoModal" class="modal">
+                    <div class="modal-content modal-large">
+                        <div class="modal-header">
+                            <h2>Candidate Manifesto</h2>
+                            <button class="modal-close"
+                                onclick="closeManifestoModal()">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="manifesto-view">
+                                <div class="candidate-header-view">
+                                    <div class="candidate-photo-large">
+                                        <img id="manifestoCandidatePhoto" src
+                                            alt="Photo">
+                                    </div>
+                                    <div>
+                                        <h3
+                                            id="manifestoCandidateName">Candidate
+                                            Name</h3>
+                                        <p id="manifestoCandidateReg">Register
+                                            Number</p>
+                                        <p
+                                            id="manifestoCandidateDept">Department</p>
+                                    </div>
+                                </div>
+                                <div id="manifestoContent">
+                                    <p>Manifesto content will be displayed
+                                        here...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn-secondary"
+                                onclick="closeManifestoModal()">Close</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Confirmation Modal -->
+                <div id="confirmModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>⚠️ Confirm Your Vote</h2>
+                            <button class="modal-close"
+                                onclick="closeConfirmModal()">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Please review your
+                                    selections:</strong></p>
+                            <div id="voteReview" class="vote-review-list">
+                                <!-- Vote summary will be displayed here -->
+                            </div>
+                            <div class="warning-box">
+                                ⚠️ Once you submit, you CANNOT change your vote.
+                                Are you sure you want to proceed?
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn-secondary"
+                                onclick="closeConfirmModal()">Cancel</button>
+                            <button class="btn-primary"
+                                onclick="submitVote()">Confirm & Submit</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Modal -->
+                <div id="successModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header success">
+                            <h2>✅ Vote Submitted Successfully!</h2>
+                        </div>
+                        <div class="modal-body">
+                            <div class="success-icon-large">🎉</div>
+                            <p>Thank you for participating in the college union
+                                election.</p>
+                            <p>Your vote has been recorded securely.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn-primary"
+                                onclick="window.location.href='student_dashboard.html'">Back
+                                to Dashboard</button>
+                        </div>
+                    </div>
+                </div>
+
+                <script src="student.js?v=14"></script>
+            </body>
+        </html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Registration - Voting System</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .signup-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .signup-form-grid .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        .signup-form-grid .btn-full {
+            grid-column: 1 / -1;
+        }
+        .compact-form .form-group {
+            margin-bottom: 0.75rem;
+        }
+        .compact-form .form-group label {
+            margin-bottom: 0.25rem;
+        }
+        .compact-form .form-group input {
+            padding: 0.6rem;
+        }
+        .compact-form .form-group small {
+            font-size: 0.7rem;
+            margin-top: 0.2rem;
+        }
+        .compact-form .checkbox-group {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .compact-form .checkbox-group label {
+            margin-bottom: 0;
+            font-size: 0.85rem;
+        }
+        .auth-header h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card" style="max-width: 600px;">
+            <div class="auth-header">
+                <h1>🎓 College Registration</h1>
+                <p>Register your institution to start conducting online elections</p>
+            </div>
+            
+            <form id="collegeSignupForm" class="auth-form compact-form signup-form-grid">
+                <div class="form-group">
+                    <label for="collegeName">College Name *</label>
+                    <input type="text" id="collegeName" name="collegeName" required placeholder="College name">
+                </div>
+
+                <div class="form-group">
+                    <label for="collegeCode">College Code *</label>
+                    <input type="text" id="collegeCode" name="collegeCode" required placeholder="Unique code">
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="adminName">Admin Name *</label>
+                    <input type="text" id="adminName" name="adminName" required placeholder="Administrator name">
+                </div>
+
+                <div class="form-group">
+                    <label for="officialEmail">Official Email *</label>
+                    <input type="email" id="officialEmail" name="officialEmail" required placeholder="admin@college.edu">
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <input type="password" id="password" name="password" required placeholder="Create password">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password *</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Re-enter password">
+                </div>
+
+                <div class="form-group checkbox-group full-width">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the Terms of Service and Privacy Policy</label>
+                </div>
+
+                <button type="submit" class="btn-primary btn-full">Register College</button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Already registered? <a href="college_login.html">Login here</a></p>
+                <p><a href="index.html">← Back to Home</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=2"></script>
+</body>
+</html>
